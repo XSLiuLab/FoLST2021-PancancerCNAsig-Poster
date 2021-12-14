@@ -44,6 +44,8 @@ output:
     number_sections: false
 bibliography: packages.bib
 link-citations: true
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
+
 ---
 
 ```{r, include=FALSE}
