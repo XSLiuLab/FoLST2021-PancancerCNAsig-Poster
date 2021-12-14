@@ -25,69 +25,7 @@ Google fonts api stuff
 
 
 
-<style type="text/css">pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */</style>
+
 
 <style>
 @page {
@@ -361,226 +299,70 @@ font-size: 20pt;
 <div id="abstract" class="section level1">
 <h1>Abstract</h1>
 <p>DNA alteration signatures are recurring patterns that are the imprints of mutagenic processes accumulated during the evolution of cancer cell. Despite the importance of copy number alteration (CNA) in cancer progression,comprehensive understanding about the mutational processes and signatures of CNA is still lacking. Here we developed a method to categorize CNA based on various fragment properties, which reflect the consequences of mutagenic processes and can be extracted from different types of data, including whole genome sequencing (WGS), whole exome sequencing (WES) and SNP array. The signature of CNA has been extracted from 2778 pan-cancer analysis of whole genomes (PCAWG) WGS samples, and further validated using 10851 the cancer genome atlas (TCGA) SNP array dataset. Novel copy number signatures associated with haploid chromosome have been identified. The activities of some copy number signatures consistently predict cancer patients’ prognosis. This study provides a repertoire for understanding the signatures and mutational processes of CNA.</p>
-<div id="objectives" class="section level2">
-<h2>Objectives</h2>
+</div>
+<div id="methodology" class="section level1">
+<h1>Methodology</h1>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure1"></span>
+<img src="Figures/copy%20number%20classification.png" alt="CNA classification strategy for signature analysis." width="70%" />
+<p class="caption">
+Figure 1: CNA classification strategy for signature analysis.
+</p>
+</div>
+<p>For each CNA segment, the following features have been considered: 1, segment context, including segment shape and copy number change number; 2, Absolute copy number; 3, LOH status; 4, segment size. In total 176 types of CNA segments have been defined accordingly.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure2"></span>
+<img src="Figures/extraction.png" alt="De novo CNA signature extraction with sigprofiler." width="80%" />
+<p class="caption">
+Figure 2: De novo CNA signature extraction with sigprofiler.
+</p>
+</div>
+<p>We selected the signature extraction solution as the maximum signature number which meets the following criteria:</p>
 <ol style="list-style-type: decimal">
-<li>Easy to use reproducible poster design.</li>
-<li>Integration with R Markdown.</li>
-<li>Easy transition from <code>posterdown</code> to <code>pagedown</code> report or manuscript documents <span class="citation">(Xie et al. 2021)</span>.</li>
+<li><p>No over fit.</p></li>
+<li><p>Stability should be at least local maximal.</p></li>
+<li><p>Mean cosine distance should be as small as possible.</p></li>
 </ol>
-</div>
-</div>
-<div id="methods" class="section level1">
-<h1>Methods</h1>
-<p>This package uses the same workflow approach as the R Markdown you know and love. Basically it goes from RMarkdown &gt; Knitr &gt; Markdown &gt; Pandoc &gt; HTML/CSS &gt; PDF. You can even use the bibliography the same way <span class="citation">(Thorne 2019)</span>.</p>
+<p>Based on the rules, we selected 14 signatures for PCAWG copy number data.</p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
-<p>Usually you want to have a nice table displaying some important results that you have calculated. In <code>posterdown</code> this is as easy as using the <code>kable</code> table formatting you are probably use to as per typical R Markdown formatting.</p>
-<p>You can reference tables like so: Table <a href="#tab:mytable">1</a>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat augue at velit tincidunt semper. Donec elementum porta posuere. Nullam interdum, odio at tincidunt feugiat, turpis nisi blandit eros, eu posuere risus felis non quam. Nam eget lorem odio. Duis et aliquet orci. Phasellus nec viverra est.</p>
-<table>
-<caption>
-<span id="tab:mytable">Table 1: </span>Table caption.
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Sepal.Length
-</th>
-<th style="text-align:center;">
-Sepal.Width
-</th>
-<th style="text-align:center;">
-Petal.Length
-</th>
-<th style="text-align:center;">
-Petal.Width
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-5.1
-</td>
-<td style="text-align:center;">
-3.5
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.9
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.7
-</td>
-<td style="text-align:center;">
-3.2
-</td>
-<td style="text-align:center;">
-1.3
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.6
-</td>
-<td style="text-align:center;">
-3.1
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.0
-</td>
-<td style="text-align:center;">
-3.6
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.4
-</td>
-<td style="text-align:center;">
-3.9
-</td>
-<td style="text-align:center;">
-1.7
-</td>
-<td style="text-align:center;">
-0.4
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.6
-</td>
-<td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.3
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.0
-</td>
-<td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.4
-</td>
-<td style="text-align:center;">
-2.9
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.9
-</td>
-<td style="text-align:center;">
-3.1
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.1
-</td>
-</tr>
-</tbody>
-</table>
-<p>Or with figures: Figure <a href="#fig:standard-plot">1</a>, or Figure <a href="#fig:morefigs">2</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:standard-plot"></span>
-<img src="PancancerCNAsig_files/figure-html/standard-plot-1.png" alt="Great figure!" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure3"></span>
+<img src="Figures/CNS_PCAWG_landscape_proportion_0.05.png" alt="Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted." width="80%" />
 <p class="caption">
-Figure 1: Great figure!
+Figure 3: Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted.
 </p>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> iris</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> data<span class="sc">$</span>Sepal.Length, </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> data<span class="sc">$</span>Sepal.Width, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> data<span class="sc">$</span>Species,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Sepal Length (cm)&quot;</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Sepal Width (cm)&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:morefigs"></span>
-<img src="PancancerCNAsig_files/figure-html/morefigs-1.png" alt="Amazing, right?!" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure4"></span>
+<img src="Figures/pcawg_cox.png" alt="CNA signature activity and cancer patients’ prognosis." width="70%" />
 <p class="caption">
-Figure 2: Amazing, right?!
+Figure 4: CNA signature activity and cancer patients’ prognosis.
 </p>
 </div>
+<p>The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers, to test this possibility, multivariate Cox (corrected for cancer types and each CNA signature) regression analyses were performed to evaluate the associations between each genome alteration signature and cancer patients’ survival time.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5"></span>
+<img src="Figures/CNS-Profile.png" alt="Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset." width="90%" />
+<p class="caption">
+Figure 5: Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset.
+</p>
 </div>
-<div id="next-steps" class="section level1">
-<h1>Next Steps</h1>
-<p>Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus <span class="citation">(Thorne 2019)</span>.</p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>Try <code>posterdown</code> out! Hopefully you like it!</p>
+<p>Here we developed a unified and comprehensive method for copy number signature analysis. Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments. New CNA patterns have been identified, and the activities of some CNA signature have been demonstrated to have prognostic power in pan-cancer datasets, suggesting copy number signatures could be biomarkers to guide cancer precision medicine.</p>
 </div>
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-R-posterdown" class="csl-entry">
-Thorne, Brent. 2019. <em>Posterdown: Generate PDF Conference Posters Using r Markdown</em>. <a href="https://github.com/brentthorne/posterdown">https://github.com/brentthorne/posterdown</a>.
+<div id="acknowledgments" class="section level1">
+<h1>Acknowledgments</h1>
+<p>We thank ShanghaiTech University High Performance Computing Public Service Platform for computing services. This work was supported by The National Natural Science Foundation of China (31771373), Shanghai Science and Technology Commission (21ZR1442400), and startup funding from ShanghaiTech University.</p>
 </div>
-<div id="ref-R-pagedown" class="csl-entry">
-Xie, Yihui, Romain Lesur, Brent Thorne, and Xianying Tan. 2021. <em>Pagedown: Paginate the HTML Output of r Markdown with CSS for Print</em>. <a href="https://github.com/rstudio/pagedown">https://github.com/rstudio/pagedown</a>.
-</div>
-</div>
+<div id="recent-works-of-out-lab" class="section level1">
+<h1>Recent works of out lab</h1>
+<ul>
+<li><p>He, Zaoke, et al. “Ggct (γ‐glutamyl cyclotransferase) plays an important role in erythrocyte antioxidant defense and red blood cell survival.” British Journal of Haematology 195.2 (2021): 267-275.</p></li>
+<li><p>Wang, Shixiang, et al. “Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes.” PLoS genetics 17.5 (2021): e1009557.</p></li>
+<li><p>Wang, Shixiang, et al. “UCSCXenaShiny: an R/CRAN package for interactive analysis of UCSC xena data.” Bioinformatics (2021).</p></li>
+<li><p>Wang, Shixiang, et al. “Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis.” Bioinformatics 37.11 (2021): 1590-1592.</p></li>
+</ul>
+<p><a href="https://github.com/XSLiuLab/">©Cancer Biology Group</a> 2021</p>
+<p><small>Research group led by Xue-Song Liu in ShanghaiTech. University. Lab website is shown in QR code at bottom right.</small></p>
 </div>
 </div>
 </div>

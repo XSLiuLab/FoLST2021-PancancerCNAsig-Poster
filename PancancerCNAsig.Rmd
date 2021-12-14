@@ -1,4 +1,6 @@
 ---
+# main_topsize: 0.2 #percent coverage of the poster
+main_bottomsize: 0.1
 title: The repertoire of copy number alteration signatures in human cancer
 author:
   - name: Ziyu Tao
@@ -42,61 +44,72 @@ bibliography: packages.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.align = 'center')
+options(knitr.table.format = "html")
 ```
 
 # Abstract
 
 DNA alteration signatures are recurring patterns that are the imprints of mutagenic processes accumulated during the evolution of cancer cell. Despite the importance of copy number alteration (CNA) in cancer progression,comprehensive understanding about the mutational processes and signatures of CNA is still lacking. Here we developed a method to categorize CNA based on various fragment properties, which reflect the consequences of mutagenic processes and can be extracted from different types of data, including whole genome sequencing (WGS), whole exome sequencing (WES) and SNP array. The signature of CNA has been extracted from 2778 pan-cancer analysis of whole genomes (PCAWG) WGS samples, and further validated using 10851 the cancer genome atlas (TCGA) SNP array dataset. Novel copy number signatures associated with haploid chromosome have been identified. The activities of some copy number signatures consistently predict cancer patients’ prognosis. This study provides a repertoire for understanding the signatures and mutational processes of CNA.
 
-## Objectives
+# Methodology 
 
-1. Easy to use reproducible poster design. 
-2. Integration with R Markdown.
-3. Easy transition from `posterdown` to `pagedown` report or manuscript documents [@R-pagedown].
 
-# Methods
+```{r, figure1, fig.cap='CNA classification strategy for signature analysis.', out.width="70%"}
+knitr::include_graphics("Figures/copy number classification.png")
+```
+For each CNA segment, the following features have been considered: 1, segment context, including segment shape and copy number change number; 2, Absolute copy number; 3, LOH status; 4, segment size. In total 176 types of CNA segments have been defined accordingly. 
 
-This package uses the same workflow approach as the R Markdown you know and love. Basically it goes from RMarkdown > Knitr > Markdown > Pandoc > HTML/CSS > PDF. You can even use the bibliography the same way [@R-posterdown].
+```{r, figure2, fig.cap='De novo CNA signature extraction with sigprofiler.', out.width="80%"}
+knitr::include_graphics("Figures/extraction.png")
+```
+We selected the signature extraction solution as the maximum signature number which meets the following criteria:
+ 
+1.	No over fit.
+
+2.	Stability should be at least local maximal.
+
+3.	Mean cosine distance should be as small as possible.
+
+Based on the rules, we selected 14 signatures for PCAWG copy number data.
 
 # Results
 
-Usually you want to have a nice table displaying some important results that you have calculated. In `posterdown` this is as easy as using the `kable` table formatting you are probably use to as per typical R Markdown formatting.
-
-You can reference tables like so: Table \@ref(tab:mytable). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat augue at velit tincidunt semper. Donec elementum porta posuere. Nullam interdum, odio at tincidunt feugiat, turpis nisi blandit eros, eu posuere risus felis non quam. Nam eget lorem odio. Duis et aliquet orci. Phasellus nec viverra est.
-
-```{r mytable, out.width='80%'}
-knitr::kable(iris[1:10, 1:4], caption = 'Table caption.',align = 'c',"html")
+```{r, figure3, fig.cap='Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted.', out.width="80%"}
+knitr::include_graphics("Figures/CNS_PCAWG_landscape_proportion_0.05.png")
 ```
 
-Or with figures: Figure \@ref(fig:standard-plot), or Figure \@ref(fig:morefigs).
-
-```{r standard-plot, out.width='80%', fig.align='center', fig.cap='Great figure!', fig.height=5}
-plot(mtcars[1:2])
+```{r, figure4, fig.cap='CNA signature activity and cancer patients’ prognosis.', out.width="70%"}
+knitr::include_graphics("Figures/pcawg_cox.png")
 ```
 
-```{r morefigs, out.width='80%', echo=TRUE, fig.cap='Amazing, right?!', fig.height=5}
-data <- iris
+The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers, to test this possibility, multivariate Cox (corrected for cancer types and each CNA signature) regression analyses were performed to evaluate the associations between each genome alteration signature and cancer patients’ survival time.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.
 
-plot(x = data$Sepal.Length, 
-     y = data$Sepal.Width, 
-     col = data$Species,
-     pch = 19, 
-     xlab = "Sepal Length (cm)",
-     ylab = "Sepal Width (cm)")
-
+```{r, figure5, fig.cap='Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset.', out.width="90%"}
+knitr::include_graphics("Figures/CNS-Profile.png")
 ```
 
-# Next Steps
-
-Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus [@R-posterdown].
+ 
 
 # Conclusion
 
-Try `posterdown` out! Hopefully you like it!
+Here we developed a unified and comprehensive method for copy number signature analysis. Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments. New CNA patterns have been identified, and the activities of some CNA signature have been demonstrated to have prognostic power in pan-cancer datasets, suggesting copy number signatures could be biomarkers to guide cancer precision medicine. 
 
-```{r, include=FALSE}
-knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
-```
+# Acknowledgments
 
-# References
+We thank ShanghaiTech University High Performance Computing Public Service Platform for computing services. This work was supported by The National Natural Science Foundation of China (31771373), Shanghai Science and Technology Commission (21ZR1442400), and startup funding from ShanghaiTech University. 
+
+# Recent works of out lab
+
+- He, Zaoke, et al. "Ggct (γ‐glutamyl cyclotransferase) plays an important role in erythrocyte antioxidant defense and red blood cell survival." British Journal of Haematology 195.2 (2021): 267-275.
+
+- Wang, Shixiang, et al. "Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes." PLoS genetics 17.5 (2021): e1009557.
+
+- Wang, Shixiang, et al. "UCSCXenaShiny: an R/CRAN package for interactive analysis of UCSC xena data." Bioinformatics (2021).
+
+- Wang, Shixiang, et al. "Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis." Bioinformatics 37.11 (2021): 1590-1592.
+
+[©Cancer Biology Group](https://github.com/XSLiuLab/) 2021
+
+<small>Research group led by Xue-Song Liu in ShanghaiTech. University. Lab website is shown in QR code at bottom right.</small>
