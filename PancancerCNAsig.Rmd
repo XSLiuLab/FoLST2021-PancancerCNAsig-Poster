@@ -35,8 +35,8 @@ affiliation:
 main_findings:
   - "**The repertoire of copy number alteration signatures in human cancer**"
 logoleft_name: Figures/shanghaitech_logo.png
-logocenter_name: Figures/tigs.png
-logoright_name: Figures/liulab.png
+logocenter_name: Figures/CNAsig.png
+logoright_name: Figures/liuxslab.png
 output: 
   posterdown::posterdown_betterport:
     self_contained: false
@@ -81,22 +81,31 @@ Based on the rules, we selected 14 signatures for PCAWG copy number data.
 
 # Results
 
-```{r, figure3, fig.cap='Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted.'}
+```{r, figure3, fig.cap='Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted.',out.width="70%"}
 knitr::include_graphics("Figures/CNS_PCAWG_landscape_proportion_0.05.png")
 ```
 
-```{r, figure4, fig.cap='CNA signature activity and cancer patients’ prognosis.'}
+```{r, figure4, fig.cap='Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset.'}
+knitr::include_graphics("Figures/CNS-Profile.png")
+```
+
+An important purpose of CNA signature analysis is to identify the underlying mutational processes for CNA, and classify CNA based on mutational processes. Potential mutational processes for CNA include intrinsic inducers and extrinsic inducers. Intrinsic CNA inducers include: double-strand break repair defect (HRD etc.); cell cycle defect; DNA replication defects; telomere loss, etc. 
+
+```{r, figure5, fig.cap='CNA signature activity and cancer patients’ prognosis.',out.width="80%"}
 knitr::include_graphics("Figures/pcawg_cox.png")
 ```
 
-The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers, to test this possibility, multivariate Cox (corrected for cancer types and each CNA signature) regression analyses were performed to evaluate the associations between each genome alteration signature and cancer patients’ survival time.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.
+The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.
 
-
- 
 
 # Conclusion
 
-Here we developed a unified and comprehensive method for copy number signature analysis. Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments. New CNA patterns have been identified, and the activities of some CNA signature have been demonstrated to have prognostic power in pan-cancer datasets, suggesting copy number signatures could be biomarkers to guide cancer precision medicine. 
+- We developed a unified and comprehensive method for copy number signature analysis. 
+- Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. - Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments.
+- copy number signatures could be biomarkers to guide cancer precision medicine. 
+
+# More
+You can scan QR code at bottom center to see online analysis report. All code and related data are published at https://github.com/XSLiuLab/Pan-cancer_CNA_signature.
 
 # Acknowledgments
 
@@ -104,12 +113,8 @@ We thank ShanghaiTech University High Performance Computing Public Service Platf
 
 # Recent works of out lab
 
-- He, Zaoke, et al. "Ggct (γ‐glutamyl cyclotransferase) plays an important role in erythrocyte antioxidant defense and red blood cell survival." British Journal of Haematology 195.2 (2021): 267-275.
-
 - Wang, Shixiang, et al. "Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes." PLoS genetics 17.5 (2021): e1009557.
-
 - Wang, Shixiang, et al. "UCSCXenaShiny: an R/CRAN package for interactive analysis of UCSC xena data." Bioinformatics (2021).
-
 - Wang, Shixiang, et al. "Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis." Bioinformatics 37.11 (2021): 1590-1592.
 
 [©Cancer Biology Group](https://github.com/XSLiuLab/) 2021

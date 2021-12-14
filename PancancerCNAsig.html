@@ -419,22 +419,37 @@ Based on the rules, we selected 14 signatures for PCAWG copy number data.</p>
 <div id="results" class="section level1">
 <h1>Results</h1>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure3"></span>
-<img src="Figures/CNS_PCAWG_landscape_proportion_0.05.png" alt="Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted." width="100%" />
+<img src="Figures/CNS_PCAWG_landscape_proportion_0.05.png" alt="Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted." width="70%" />
 <p class="caption">
 Figure 3: Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure4"></span>
-<img src="Figures/pcawg_cox.png" alt="CNA signature activity and cancer patients’ prognosis." width="100%" />
+<img src="Figures/CNS-Profile.png" alt="Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset." width="100%" />
 <p class="caption">
-Figure 4: CNA signature activity and cancer patients’ prognosis.
+Figure 4: Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset.
 </p>
 </div>
-<p>The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers, to test this possibility, multivariate Cox (corrected for cancer types and each CNA signature) regression analyses were performed to evaluate the associations between each genome alteration signature and cancer patients’ survival time.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.</p>
+<p>An important purpose of CNA signature analysis is to identify the underlying mutational processes for CNA, and classify CNA based on mutational processes. Potential mutational processes for CNA include intrinsic inducers and extrinsic inducers. Intrinsic CNA inducers include: double-strand break repair defect (HRD etc.); cell cycle defect; DNA replication defects; telomere loss, etc.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5"></span>
+<img src="Figures/pcawg_cox.png" alt="CNA signature activity and cancer patients’ prognosis." width="80%" />
+<p class="caption">
+Figure 5: CNA signature activity and cancer patients’ prognosis.
+</p>
+</div>
+<p>The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.</p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>Here we developed a unified and comprehensive method for copy number signature analysis. Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments. New CNA patterns have been identified, and the activities of some CNA signature have been demonstrated to have prognostic power in pan-cancer datasets, suggesting copy number signatures could be biomarkers to guide cancer precision medicine.</p>
+<ul>
+<li>We developed a unified and comprehensive method for copy number signature analysis.</li>
+<li>Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. - Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments.</li>
+<li>copy number signatures could be biomarkers to guide cancer precision medicine.</li>
+</ul>
+</div>
+<div id="more" class="section level1">
+<h1>More</h1>
+<p>You can scan QR code at bottom center to see online analysis report. All code and related data are published at <a href="https://github.com/XSLiuLab/Pan-cancer_CNA_signature" class="uri">https://github.com/XSLiuLab/Pan-cancer_CNA_signature</a>.</p>
 </div>
 <div id="acknowledgments" class="section level1">
 <h1>Acknowledgments</h1>
@@ -443,10 +458,9 @@ Figure 4: CNA signature activity and cancer patients’ prognosis.
 <div id="recent-works-of-out-lab" class="section level1">
 <h1>Recent works of out lab</h1>
 <ul>
-<li><p>He, Zaoke, et al. “Ggct (γ‐glutamyl cyclotransferase) plays an important role in erythrocyte antioxidant defense and red blood cell survival.” British Journal of Haematology 195.2 (2021): 267-275.</p></li>
-<li><p>Wang, Shixiang, et al. “Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes.” PLoS genetics 17.5 (2021): e1009557.</p></li>
-<li><p>Wang, Shixiang, et al. “UCSCXenaShiny: an R/CRAN package for interactive analysis of UCSC xena data.” Bioinformatics (2021).</p></li>
-<li><p>Wang, Shixiang, et al. “Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis.” Bioinformatics 37.11 (2021): 1590-1592.</p></li>
+<li>Wang, Shixiang, et al. “Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes.” PLoS genetics 17.5 (2021): e1009557.</li>
+<li>Wang, Shixiang, et al. “UCSCXenaShiny: an R/CRAN package for interactive analysis of UCSC xena data.” Bioinformatics (2021).</li>
+<li>Wang, Shixiang, et al. “Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis.” Bioinformatics 37.11 (2021): 1590-1592.</li>
 </ul>
 <p><a href="https://github.com/XSLiuLab/">©Cancer Biology Group</a> 2021</p>
 <p><small>Research group led by Xue-Song Liu in ShanghaiTech. University. Lab website is shown in QR code at bottom right.</small></p>
@@ -458,8 +472,8 @@ Figure 4: CNA signature activity and cancer patients’ prognosis.
 </div>
 <div class="main_bottom">
 <img id="main-img-left" src=Figures/shanghaitech_logo.png>
-<img id="main-img-center" src=Figures/tigs.png>
-<img id="main-img-right" src=Figures/liulab.png>
+<img id="main-img-center" src=Figures/CNAsig.png>
+<img id="main-img-right" src=Figures/liuxslab.png>
 </div>
 </div>
 
