@@ -81,7 +81,7 @@ Based on the rules, we selected 14 signatures for PCAWG copy number data.
 
 # Results
 
-```{r, figure3, fig.cap='Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted.',out.width="70%"}
+```{r, figure3, fig.cap='Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to >=5% of the total are counted.',out.width="70%"}
 knitr::include_graphics("Figures/CNS_PCAWG_landscape_proportion_0.05.png")
 ```
 
