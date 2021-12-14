@@ -2,9 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>PancancerCNAsig.knit</title>
+
+<script src="PancancerCNAsig_files/header-attrs-2.11/header-attrs.js"></script>
+
+
+
+
 
 
 <!--
@@ -16,178 +26,28 @@ Font-awesome icons ie github or twitter
 <!--
 Google fonts api stuff
 -->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
 
-
-
-<title>The repertoire of copy number alteration signatures in human cancer</title>
-
-<script src="PancancerCNAsig_files/header-attrs-2.11/header-attrs.js"></script>
-
-
-
-
-
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
 <style>
 @page {
-size: 45in 38in;
+size: 36in 48in;
 margin: 0;
 padding: 0;
 }
 body {
-margin: 0;
-font-size: 45px;
-width: 45in;
-height: 38in;
-padding: 0;
+margin: 0px;
+padding: 0px;
+width: 36in;
+height: 48in;
 text-align: justify;
-font-family: Palatino;
+font-size: 45px;
+line-height: 1.05;
 }
-.poster_wrap {
-width: 45in;
-height: 38in;
-padding: 0cm;
-}
-.title_container {
-width: 45in;
-height: calc(38in * 0.15);
-overflow: hidden;
-background-color: #0b4545;
-border: 0 solid #0b4545;
-}
-.logo_left {
-float: left;
-width: 10%;
-height: 100%;
-background-color: #0b4545;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.logo_right {
-float: right;
-width: 10%;
-height: 100%;
-background-color: #0b4545;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.poster_title {
-text-align: center;
-position: relative;
-float: left;
-width: 80%;
-height: 100%;
-color: #FFFFFF;
-top: 50%;
-transform: translateY(-50%);
--webkit-transform: translateY(-50%);
-}
-#title {
-font-family: Palatino;
-}
-/* unvisited link */
-a:link {
-color: #cc0000;
-}
-.mybreak {
-  break-before: column;
-}
-/* visited link */
-a:visited {
-color: #cc0000;
-}
-
-/* mouse over link */
-a:hover {
-color: #cc0000;
-}
-
-/* selected link */
-a:active {
-color: #cc0000;
-}
-.poster_body {
--webkit-column-count: 3; /* Chrome, Safari, Opera */
--moz-column-count: 3; /* Firefox */
-column-count: 3;
--webkit-column-fill: auto;
--moz-column-fill: auto;
-column-fill: auto;
--webkit-column-rule-width: 1mm;
--moz-column-rule-width: 1mm;
-column-rule-width: 1mm;
--webkit-column-rule-style: dashed;
--moz-column-rule-style: dashed;
-column-rule-style: dashed;
--webkit-column-rule-color: #0b4545;
--moz-column-rule-color: #0b4545;
-column-rule-color: #0b4545;
-column-gap: 1em;
-padding-left: 0.5em;
-padding-right: 0.5em;
-height: 100%;
-color: #000000
-background-color: #ffffff;
-}
-.poster_title h1 {
-font-size: 75pt;
-margin: 0;
-border: 0;
-font-weight: normal;
-}
-.poster_body_wrap{
-width: calc(45in + 0 + 0);
-height: calc(38in * 0.83);
-padding-top: calc(38in * 0.005);
-padding-bottom: calc(38in * 0.01);
-background-color: #ffffff;
-}
-.poster_title h3 {
-color: #ffffff;
-font-size: 50pt;
-margin: 0;
-border: 0;
-font-weight: normal;
-}
-.poster_title h3 > sup {
-  font-size: 35pt;
-  margin-left: 0.02em;
-}
-.poster_title h5 {
-color: #FFFFFF;
-font-size: 35pt;
-margin: 0;
-border: 0;
-font-weight: normal;
-}
-img {
-margin-top: 2cm;
-margin-bottom: 0;
-}
-.section {
-  padding: 0.2em;
-}
-.poster_body h1 {
-text-align: center;
-color: #FFFFFF;
-font-size: 65pt;
-border: 2mm solid #0b4545;
-background-color: #0b4545;
-border-radius: 4mm 0mm;
-margin-top: 2mm;
-margin-bottom: 2mm;
-font-weight: normal;
-}
-.poster_body h2 {
-color: #000000;
-font-size: 40pt;
-padding-left: 4mm;
-font-weight: normal;
-}
-.span {
-width: 200%;
-}
+/* RMarkdown Class Styles */
 /* center align leaflet map,
 from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
 .html-widget {
@@ -205,71 +65,297 @@ background-color: #dddddd40;
 border-radius: 4mm;
 padding: 4mm;
 width: 75%;
-/* align-items: center; */
 margin: auto;
-padding-left: 2cm;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
 }
 code.sourceCode.r{
 background-color: transparent;
 font-size: 20pt;
 border-radius: 2mm;
 }
-.caption {
-font-size: 25pt;
-}
-.table caption {
-font-size: 25pt;
-padding-bottom: 3mm;
-
-}
 code {
-font-size: 1em;
+font-size: 25pt;
 font-family: monospace;
 background-color: #00808024;
 color: #0b4545;
 padding: 1.2mm;
+line-height: 1;
 border-radius: 2mm;
-}
-.poster_title code {
-font-size: 1em;
-}
-table {
-font-size: 40px;
-margin: auto;
-border-top: 3px solid #666;
-border-bottom: 3px solid #666;
-}
-table thead th {
-border-bottom: 3px solid #ddd;
-}
-td {
-padding: 8px;
-}
-th {
-padding: 15px;
 }
 caption {
 margin-bottom: 10px;
-}
-.poster_body p {
-margin-right: 4mm;
-margin-left: 4mm;
-margin-top: 6mm;
-margin-bottom: 10mm;
-}
-.poster_body ol {
-margin-right: 4mm;
-margin-left: 4mm;
-}
-#ul {
-margin-right: 4mm;
-margin-left: 4mm;
-}
-.references p {
 font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00808020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 36in;
+height: calc(48in *  (1 - 0.2 - 0.09 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(48in *  0.2 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #008080;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #008080;
+}
+#title {
+font-size: 125pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #0b4545;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #008080;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #0b454575 33%,
+      #0b4545 50%,
+      #0b454575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 36in;
+height: calc(48in * 0.2);
+position: absolute;
+background-color: #0b4545;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#0b4545 50%,#008080);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(36in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 150px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 36in;
+height: 48in;
+padding: 0cm;
+}
+.main_bottom {
+width: 36in;
+height: calc(48in * 0.09);
+margin-top: calc(48in * (1 - 0.09));
+position: absolute;
+background-color: #0b4545;
+background-image: linear-gradient(#008080 10%, #0b4545);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
 }
 .orcid img {
-  width: 1em;
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
 }
 </style>
 </head>
@@ -277,25 +363,34 @@ font-size: 20pt;
 
 
 <div class="poster_wrap">
-<div class="title_container">
-<!-- Left Logo  -->
-<div class="logo_left">
-<img src= 'Figures/shanghaitech_logo.png' style="width: 80%">
-</div>
-<!-- Poster Title -->
-<div class= "poster_title">
-<h1 id="title">The repertoire of copy number alteration signatures in human cancer</h1>
-<h3 id="author">Ziyu Tao<sup>1-3*</sup>, Shixiang Wang<sup>1-3*</sup>, Chenxu Wu<sup>1-3*</sup>, Huimin Li<sup>1</sup>, Tao Wu<sup>1</sup>, Xiangyu Zhao<sup>1</sup>, Wei Ning<sup>1</sup>, Guangshuai Wang<sup>1</sup>, Xue-Song Liu<sup>1, <a class="orcid" href="https://orcid.org/0000-0002-7736-0077"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3><br>
-<h5 id="affiliation"><sup>1</sup> School of Life Science and Technology, ShanghaiTech University, Shanghai 201203, China<br> <sup>2</sup> Shanghai Institute of Biochemistry and Cell Biology, Chinese Academy of Sciences, Shanghai, China<br> <sup>3</sup> University of Chinese Academy of Sciences, Beijing, China</h5>
-</div>
-<!-- Right Logo  -->
-<div class="logo_right">
-<img src=Figures/liulab.png style="width: 80%">
-</div>
+
+<div class="column outer">
+<div class="section">
+
+<h3 id="author" class="author">
+
+        Xue-Song Liu<sup> 1, <a class="orcid" href="https://orcid.org/0000-0002-7736-0077"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:liuxs@shanghaitech.edu.cn" class="email">liuxs@shanghaitech.edu.cn</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+Ziyu Tao<sup>1-3*</sup>
+ Shixiang Wang<sup>1-3*</sup>
+ Chenxu Wu<sup>1-3*</sup>
+ Huimin Li<sup>1</sup>
+ Tao Wu<sup>1</sup>
+ Xiangyu Zhao<sup>1</sup>
+ Wei Ning<sup>1</sup>
+ Guangshuai Wang<sup>1</sup>
+ </h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> School of Life Science and Technology, ShanghaiTech University, Shanghai 201203, China<br> <sup>2</sup> Shanghai Institute of Biochemistry and Cell Biology, Chinese Academy of Sciences, Shanghai, China<br> <sup>3</sup> University of Chinese Academy of Sciences, Beijing, China
+</p>
 </div>
 
-<div class='poster_body_wrap'>
-<div class='poster_body'>
 <div id="abstract" class="section level1">
 <h1>Abstract</h1>
 <p>DNA alteration signatures are recurring patterns that are the imprints of mutagenic processes accumulated during the evolution of cancer cell. Despite the importance of copy number alteration (CNA) in cancer progression,comprehensive understanding about the mutational processes and signatures of CNA is still lacking. Here we developed a method to categorize CNA based on various fragment properties, which reflect the consequences of mutagenic processes and can be extracted from different types of data, including whole genome sequencing (WGS), whole exome sequencing (WES) and SNP array. The signature of CNA has been extracted from 2778 pan-cancer analysis of whole genomes (PCAWG) WGS samples, and further validated using 10851 the cancer genome atlas (TCGA) SNP array dataset. Novel copy number signatures associated with haploid chromosome have been identified. The activities of some copy number signatures consistently predict cancer patients’ prognosis. This study provides a repertoire for understanding the signatures and mutational processes of CNA.</p>
@@ -303,7 +398,7 @@ font-size: 20pt;
 <div id="methodology" class="section level1">
 <h1>Methodology</h1>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure1"></span>
-<img src="Figures/copy%20number%20classification.png" alt="CNA classification strategy for signature analysis." width="70%" />
+<img src="Figures/copy%20number%20classification.png" alt="CNA classification strategy for signature analysis." width="80%" />
 <p class="caption">
 Figure 1: CNA classification strategy for signature analysis.
 </p>
@@ -315,35 +410,27 @@ Figure 1: CNA classification strategy for signature analysis.
 Figure 2: De novo CNA signature extraction with sigprofiler.
 </p>
 </div>
-<p>We selected the signature extraction solution as the maximum signature number which meets the following criteria:</p>
-<ol style="list-style-type: decimal">
-<li><p>No over fit.</p></li>
-<li><p>Stability should be at least local maximal.</p></li>
-<li><p>Mean cosine distance should be as small as possible.</p></li>
-</ol>
-<p>Based on the rules, we selected 14 signatures for PCAWG copy number data.</p>
+<p>We selected the signature extraction solution as the maximum signature number which meets the following criteria:
+1. No over fit.
+2. Stability should be at least local maximal.
+3. Mean cosine distance should be as small as possible.
+Based on the rules, we selected 14 signatures for PCAWG copy number data.</p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure3"></span>
-<img src="Figures/CNS_PCAWG_landscape_proportion_0.05.png" alt="Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted." width="80%" />
+<img src="Figures/CNS_PCAWG_landscape_proportion_0.05.png" alt="Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted." width="100%" />
 <p class="caption">
 Figure 3: Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to ≥5% of the total are counted.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure4"></span>
-<img src="Figures/pcawg_cox.png" alt="CNA signature activity and cancer patients’ prognosis." width="70%" />
+<img src="Figures/pcawg_cox.png" alt="CNA signature activity and cancer patients’ prognosis." width="100%" />
 <p class="caption">
 Figure 4: CNA signature activity and cancer patients’ prognosis.
 </p>
 </div>
 <p>The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers, to test this possibility, multivariate Cox (corrected for cancer types and each CNA signature) regression analyses were performed to evaluate the associations between each genome alteration signature and cancer patients’ survival time.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5"></span>
-<img src="Figures/CNS-Profile.png" alt="Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset." width="90%" />
-<p class="caption">
-Figure 5: Representative CNA profile, prominent features and potential mechanisms for each identified CNA signatures extracted in PCAWG dataset.
-</p>
-</div>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
@@ -364,9 +451,16 @@ Figure 5: Representative CNA profile, prominent features and potential mechanism
 <p><a href="https://github.com/XSLiuLab/">©Cancer Biology Group</a> 2021</p>
 <p><small>Research group led by Xue-Song Liu in ShanghaiTech. University. Lab website is shown in QR code at bottom right.</small></p>
 </div>
-</div>
-</div>
 
+</div>
+<div class="main">
+<p><strong>The repertoire of copy number alteration signatures in human cancer</strong></p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=Figures/shanghaitech_logo.png>
+<img id="main-img-center" src=Figures/tigs.png>
+<img id="main-img-right" src=Figures/liulab.png>
+</div>
 </div>
 
 
