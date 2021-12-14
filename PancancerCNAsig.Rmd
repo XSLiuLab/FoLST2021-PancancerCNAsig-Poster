@@ -26,9 +26,6 @@ author:
     affil: 1
   - name: Xue-Song Liu
     affil: 1
-    orcid: '0000-0002-7736-0077'
-    main: true
-    email: liuxs@shanghaitech.edu.cn
 affiliation:
   - num: 1
     address: School of Life Science and Technology, ShanghaiTech University, Shanghai 201203, China
@@ -103,12 +100,14 @@ knitr::include_graphics("Figures/pcawg_cox.png")
 
 The CNA signatures extracted from cancer patients could be cancer prognosis biomarkers.In pan-cancer level, activities of CNS11, CNS12 are significantly associated with poor OS.
 
+```{r, figure6, fig.cap='Associations between the relative activities of CNA signatures and tumor stages.'}
+knitr::include_graphics("Figures/tumor_stage.png")
+```
+
 
 # Conclusion
 
-- We developed a unified and comprehensive method for copy number signature analysis. 
-- Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. - Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments.
-- copy number signatures could be biomarkers to guide cancer precision medicine. 
+Here we developed a unified and comprehensive method for copy number signature analysis. Our method can be applied in cancer patients with copy number profiles generated with WGS, WES or SNP array data. Our copy number signature analysis method is based on a novel and comprehensive method to catalog copy number segments. New CNA patterns have been identified, and the activities of some CNA signature have been demonstrated to have prognostic power in pan-cancer datasets, suggesting copy number signatures could be biomarkers to guide cancer precision medicine. 
 
 # More
 You can scan QR code at bottom center to see online analysis report. All code and related data are published at https://github.com/XSLiuLab/Pan-cancer_CNA_signature.
@@ -117,11 +116,6 @@ You can scan QR code at bottom center to see online analysis report. All code an
 
 We thank ShanghaiTech University High Performance Computing Public Service Platform for computing services. This work was supported by The National Natural Science Foundation of China (31771373), Shanghai Science and Technology Commission (21ZR1442400), and startup funding from ShanghaiTech University. 
 
-# Recent works of out lab
-
-- Wang, Shixiang, et al. "Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes." PLoS genetics 17.5 (2021): e1009557.
-- Wang, Shixiang, et al. "UCSCXenaShiny: an R/CRAN package for interactive analysis of UCSC xena data." Bioinformatics (2021).
-- Wang, Shixiang, et al. "Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis." Bioinformatics 37.11 (2021): 1590-1592.
 
 [©Cancer Biology Group](https://github.com/XSLiuLab/) 2021
 
