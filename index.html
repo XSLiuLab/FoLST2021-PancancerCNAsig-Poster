@@ -34,17 +34,17 @@ Here are the required style attributes for css to make this poster work :)
 -->
 <style>
 @page {
-size: 36in 48in;
+size: 60cm 90cm;
 margin: 0;
 padding: 0;
 }
 body {
 margin: 0px;
 padding: 0px;
-width: 36in;
-height: 48in;
+width: 60cm;
+height: 90cm;
 text-align: justify;
-font-size: 45px;
+font-size: 30px;
 line-height: 1.05;
 }
 /* RMarkdown Class Styles */
@@ -125,8 +125,8 @@ float: left;
 padding: 0px;
 }
 .outer {
-width: 36in;
-height: calc(48in *  (1 - 0.2 - 0.09 - 0.01) );
+width: 60cm;
+height: calc(90cm *  (1 - 0.15 - 0.09 - 0.01) );
 -webkit-column-count: 3; /* Chrome, Safari, Opera */
 -moz-column-count: 3; /* Firefox */
 column-count: 3;
@@ -147,7 +147,7 @@ column-rule-style: none;
 column-rule-color: black;
 background-color: #ffffff;
 font-family: Rasa;
-margin-top: calc(48in *  0.2 );
+margin-top: calc(90cm *  0.15 );
 padding-top: 1em;
 padding-bottom: 1em;
 }
@@ -239,8 +239,8 @@ padding-right: 8%;
 text-align: left;
 }
 .main {
-width: 36in;
-height: calc(48in * 0.2);
+width: 60cm;
+height: calc(90cm * 0.15);
 position: absolute;
 background-color: #0b4545;
 color: #ffffff90;
@@ -264,7 +264,7 @@ position: absolute;
 }
 #main-img-center {
 width: 10%;
-left: calc(36in * 0.45);
+left: calc(60cm * 0.45);
 bottom: 0.5in;
 position: absolute;
 }
@@ -275,7 +275,7 @@ bottom: 0.2in;
 position: absolute;
 }
 .main p {
-font-size: 150px;
+font-size: 70pt;
 font-family: Special Elite;
 text-align: center;
 margin: 0;
@@ -305,14 +305,14 @@ font-size: 5px;
 text-decoration: none;
 }
 .poster_wrap {
-width: 36in;
-height: 48in;
+width: 60cm;
+height: 90cm;
 padding: 0cm;
 }
 .main_bottom {
-width: 36in;
-height: calc(48in * 0.09);
-margin-top: calc(48in * (1 - 0.09));
+width: 60cm;
+height: calc(90cm * 0.09);
+margin-top: calc(90cm * (1 - 0.09));
 position: absolute;
 background-color: #0b4545;
 background-image: linear-gradient(#008080 10%, #0b4545);
@@ -398,14 +398,14 @@ Ziyu Tao<sup>1-3*</sup>
 <div id="methodology" class="section level1">
 <h1>Methodology</h1>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure1"></span>
-<img src="Figures/copy%20number%20classification.png" alt="CNA classification strategy for signature analysis." width="80%" />
+<img src="Figures/copy%20number%20classification.png" alt="CNA classification strategy for signature analysis." width="100%" />
 <p class="caption">
 Figure 1: CNA classification strategy for signature analysis.
 </p>
 </div>
 <p>For each CNA segment, the following features have been considered: 1, segment context, including segment shape and copy number change number; 2, Absolute copy number; 3, LOH status; 4, segment size. In total 176 types of CNA segments have been defined accordingly.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure2"></span>
-<img src="Figures/extraction.png" alt="De novo CNA signature extraction with sigprofiler." width="80%" />
+<img src="Figures/extraction.png" alt="De novo CNA signature extraction with sigprofiler." width="100%" />
 <p class="caption">
 Figure 2: De novo CNA signature extraction with sigprofiler.
 </p>
@@ -419,7 +419,7 @@ Based on the rules, we selected 14 signatures for PCAWG copy number data.</p>
 <div id="results" class="section level1">
 <h1>Results</h1>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure3"></span>
-<img src="Figures/CNS_PCAWG_landscape_proportion_0.05.png" alt="Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to &gt;=5% of the total are counted." width="70%" />
+<img src="Figures/CNS_PCAWG_landscape_proportion_0.05.png" alt="Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to &gt;=5% of the total are counted." width="100%" />
 <p class="caption">
 Figure 3: Proportion of tumors with the signature and the median activity of the signature are shown for 32 PCAWG cancer types. For each individual tumor, only signatures that contribute to &gt;=5% of the total are counted.
 </p>
@@ -432,7 +432,7 @@ Figure 4: Representative CNA profile, prominent features and potential mechanism
 </div>
 <p>An important purpose of CNA signature analysis is to identify the underlying mutational processes for CNA, and classify CNA based on mutational processes. Potential mutational processes for CNA include intrinsic inducers and extrinsic inducers. Intrinsic CNA inducers include: double-strand break repair defect (HRD etc.); cell cycle defect; DNA replication defects; telomere loss, etc.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5"></span>
-<img src="Figures/pcawg_cox.png" alt="CNA signature activity and cancer patients’ prognosis." width="80%" />
+<img src="Figures/pcawg_cox.png" alt="CNA signature activity and cancer patients’ prognosis." width="100%" />
 <p class="caption">
 Figure 5: CNA signature activity and cancer patients’ prognosis.
 </p>
